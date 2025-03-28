@@ -1,5 +1,5 @@
 services:
-  secretcord:
+  idcpf:
     build:
       context: .
       dockerfile: Dockerfile
