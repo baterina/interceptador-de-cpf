@@ -11,25 +11,9 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { ArrowRightIcon, MousePointerClickIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useBoolean } from 'usehooks-ts'
+import { DateSpan } from './date-span'
 import AnalyticsDialog from './dialog/analytics-dialog'
 import { Button } from './ui/button'
-
-const formatDate = (date: Date) => {
-  return date.toLocaleDateString('pt-BR', {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-  })
-}
-const formatFullDate = (date: Date) => {
-  return date.toLocaleDateString('pt-BR', {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-  })
-}
 
 type Props = {
   link: Prisma.LinkGetPayload<{
@@ -78,9 +62,11 @@ export function ListLinkItem({ link }: Props) {
         <div className='text-sm'>
           <TooltipProvider>
             <Tooltip>
-              <TooltipTrigger>{formatDate(link.createdAt)}</TooltipTrigger>
+              <TooltipTrigger>
+                <DateSpan date={link.createdAt} />
+              </TooltipTrigger>
               <TooltipContent>
-                <p>{formatFullDate(link.createdAt)}</p>
+                <DateSpan date={link.createdAt} format='fulldate' />
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

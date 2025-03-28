@@ -1,12 +1,13 @@
+import { Prisma } from '@prisma/client'
 import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Prisma } from '@prisma/client'
 
 import { getLink } from '@/lib/utils'
 import { CopyButton } from './copy-button'
+import { DateSpan } from './date-span'
 import { LinkOptions } from './link-options'
 import { ScrollArea, ScrollBar } from './ui/scroll-area'
 
@@ -19,16 +20,6 @@ export type Props = {
 }
 
 export function ListLinksTable({ links }: Props) {
-  const formatDate = (date: Date) => {
-    return date.toLocaleDateString('pt-BR', {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-    })
-  }
-
   return (
     <ScrollArea className='h-full w-full px-4 pb-4'>
       <div className='border rounded-md'>
@@ -79,7 +70,9 @@ export function ListLinksTable({ links }: Props) {
                   </div>
                 </TableCell>
                 <TableCell className='text-right'>{link.accesses.length} cliques</TableCell>
-                <TableCell>{formatDate(link.createdAt)}</TableCell>
+                <TableCell>
+                  <DateSpan date={link.createdAt} format='fulldate' />
+                </TableCell>
                 <TableCell>
                   <LinkOptions link={link} />
                 </TableCell>
