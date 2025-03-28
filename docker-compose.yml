@@ -1,0 +1,21 @@
+services:
+  secretcord:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - proxy
+    volumes:
+      - ./prisma:/app/prisma
+      - ./data:/app/data
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.interceptador.rule=Host(`interceptador-de-cpf.dardo.me`)
+      - traefik.http.routers.interceptador.entrypoints=https
+      - traefik.http.routers.interceptador.tls=true
+      - traefik.http.services.interceptador.loadbalancer.server.port=3000
+      - traefik.docker.network=proxy
+
+networks:
+  proxy:
+    external: true
