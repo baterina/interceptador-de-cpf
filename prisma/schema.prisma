@@ -30,6 +30,9 @@ model Access {
   linkId    String
   link      Link     @relation(fields: [linkId], references: [id], onDelete: Cascade)
   createdAt DateTime
+  browser   String?  @default("unknown")
+  os        String?  @default("unknown")
+  isBot     Boolean? @default(false)
 }
 
 model User {
