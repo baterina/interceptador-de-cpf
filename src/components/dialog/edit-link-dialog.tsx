@@ -1,8 +1,7 @@
 import { useBoolean } from 'usehooks-ts'
 
-import { updateLink } from '@/app/actions'
+import { updateLink } from '@/actions/links/link.actions'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
-import { isActionError } from '@/lib/utils'
 import { Link } from '@prisma/client'
 import { toast } from 'sonner'
 import { CreateLinkValues } from '../form/create-form'
@@ -14,16 +13,9 @@ export type Props = {
 }
 
 export function EditLinkDialog({ state, link }: Props) {
+  const update = updateLink.bind(null, link.id)
   async function onSubmit(values: CreateLinkValues) {
-    const result = await updateLink(link.id, values)
-
-    if (!result) {
-      return
-    }
-
-    if (isActionError(result)) {
-      return toast.error(result.error)
-    }
+    const result = await update(values)
 
     state.setFalse()
 

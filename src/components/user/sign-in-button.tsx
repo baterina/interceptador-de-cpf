@@ -1,18 +1,12 @@
 'use client'
 
-import { authClient } from '@/lib/auth-client'
+import { signInAction } from '@/actions/auth/client.actions'
 import { LogInIcon } from 'lucide-react'
 import { Button } from '../ui/button'
 
 export function SignInButton() {
-  async function signIn() {
-    const result = await authClient.signIn.social({
-      provider: 'discord',
-    })
-  }
-
   return (
-    <Button onClick={signIn}>
+    <Button onClick={() => signInAction()}>
       <LogInIcon />
       Login
     </Button>

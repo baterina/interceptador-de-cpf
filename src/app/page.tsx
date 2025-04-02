@@ -1,12 +1,11 @@
 import { ListLinks } from '@/components/list-links'
 import LoggedOutScreen from '@/components/user/logged-out-screen'
-import { isActionError } from '@/lib/utils'
-import { getSession } from './actions'
+import { authClient } from '@/lib/auth-client'
 
 export default async function Home() {
-  const session = await getSession()
+  const { error } = await authClient.getSession()
 
-  if (isActionError(session)) {
+  if (error) {
     return <LoggedOutScreen />
   }
 

@@ -1,6 +1,6 @@
 import { useBoolean } from 'usehooks-ts'
 
-import { deleteLink } from '@/app/actions'
+import { deleteLink } from '@/actions/links/link.actions'
 import {
   AlertDialog,
   AlertDialogAction,

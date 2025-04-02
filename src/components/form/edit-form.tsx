@@ -5,7 +5,7 @@ import { Link } from '@prisma/client'
 import { RefreshCwIcon } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 
-import { generateSlug } from '@/app/actions'
+import { generateSlug } from '@/actions/links/slug.actions'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
@@ -76,7 +76,11 @@ export function EditLinkForm({ link, onSubmit }: Props) {
                     size='icon'
                     variant='outline'
                     className='ml-2'
-                    onClick={() => generateSlug().then(slug => form.setValue('slug', slug))}
+                    onClick={() =>
+                      generateSlug()
+                        .then(res => res!.data!)
+                        .then(slug => form.setValue('slug', slug))
+                    }
                   >
                     <RefreshCwIcon />
                   </Button>

@@ -1,5 +1,4 @@
-import { getLinks } from '@/app/actions'
-import { isActionError } from '@/lib/utils'
+import { getLinks } from '@/actions/links/link.actions'
 import { Rows3Icon, TableIcon } from 'lucide-react'
 import { CreateLinkButton } from './create-link-button'
 import { ListLinksRows } from './list-links-rows'
@@ -9,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
 export async function ListLinks() {
   const links = await getLinks()
 
-  if (isActionError(links)) {
+  if (!links || !links.data || links.serverError) {
     return null
   }
 
