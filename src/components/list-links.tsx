@@ -4,12 +4,13 @@ import { CreateLinkButton } from './create-link-button'
 import { ListLinksRows } from './list-links-rows'
 import { ListLinksTable } from './list-links-table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
+import LoggedOutScreen from './user/logged-out-screen'
 
 export async function ListLinks() {
   const links = await getLinks()
 
   if (!links || !links.data || links.serverError) {
-    return null
+    return <LoggedOutScreen />
   }
 
   return (
