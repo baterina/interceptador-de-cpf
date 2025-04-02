@@ -2,6 +2,9 @@
   "name": "interceptador-de-cpf",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "url": "https://github.com/baterina/interceptador-de-cpf"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
