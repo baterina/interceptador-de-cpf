@@ -4,16 +4,16 @@ import { Prisma } from '@prisma/client'
 import Link from 'next/link'
 
 import { getLink, getLinkFavicon, plural } from '@/lib/utils'
-import { CopyButton } from './copy-button'
+import { CopyButton } from '../util/copy-button'
 import { LinkOptions } from './link-options'
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { ArrowRightIcon, MousePointerClickIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useBoolean } from 'usehooks-ts'
-import { DateSpan } from './date-span'
-import AnalyticsDialog from './dialog/analytics-dialog'
-import { Button } from './ui/button'
+import AnalyticsDialog from '../dialog/analytics-dialog'
+import { Button } from '../ui/button'
+import { DateSpan } from '../util/date-span'
 
 type Props = {
   link: Prisma.LinkGetPayload<{

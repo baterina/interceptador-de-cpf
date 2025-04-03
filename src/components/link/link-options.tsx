@@ -15,10 +15,10 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 import { useBoolean } from 'usehooks-ts'
-import AnalyticsDialog from './dialog/analytics-dialog'
-import { DeleteLinkDialog } from './dialog/delete-link-dialog'
-import { EditLinkDialog } from './dialog/edit-link-dialog'
-import { QrCodeDialog } from './dialog/qr-code-dialog'
+import AnalyticsDialog from '../dialog/analytics-dialog'
+import { DeleteLinkDialog } from '../dialog/delete-link-dialog'
+import { EditLinkDialog } from '../dialog/edit-link-dialog'
+import { QrCodeDialog } from '../dialog/qr-code-dialog'
 
 export type Props = {
   link: Prisma.LinkGetPayload<{

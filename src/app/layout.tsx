@@ -1,6 +1,6 @@
-import { BackgroundShapes } from '@/components/background-shapes'
 import { Toaster } from '@/components/ui/sonner'
 import { Navbar } from '@/components/user/navbar'
+import { BackgroundShapes } from '@/components/util/background-shapes'
 import type { Metadata } from 'next'
 import './globals.css'
 

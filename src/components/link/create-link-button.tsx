@@ -8,8 +8,8 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { isActionError } from '@/lib/utils'
 import { PlusIcon } from 'lucide-react'
 import { toast } from 'sonner'
-import { CreateLinkForm } from './form/create-form'
-import { Button } from './ui/button'
+import { CreateLinkForm } from '../form/create-form'
+import { Button } from '../ui/button'
 
 export function CreateLinkButton() {
   const openState = useBoolean(false)

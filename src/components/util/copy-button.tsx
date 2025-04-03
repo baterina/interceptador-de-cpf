@@ -2,8 +2,8 @@
 
 import { CopyCheckIcon, CopyIcon } from 'lucide-react'
 import { useBoolean } from 'usehooks-ts'
-import { Button } from './ui/button'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip'
+import { Button } from '../ui/button'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip'
 
 export type Props = {
   label: string

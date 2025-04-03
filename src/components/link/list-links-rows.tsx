@@ -1,7 +1,7 @@
 import { Prisma } from '@prisma/client'
 
+import { ScrollArea, ScrollBar } from '../ui/scroll-area'
 import { ListLinkItem } from './list-link-item'
-import { ScrollArea, ScrollBar } from './ui/scroll-area'
 
 export type Props = {
   links: Prisma.LinkGetPayload<{

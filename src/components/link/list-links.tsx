@@ -1,10 +1,10 @@
 import { getLinks } from '@/actions/links/link.actions'
 import { Rows3Icon, TableIcon } from 'lucide-react'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
+import LoggedOutScreen from '../user/logged-out-screen'
 import { CreateLinkButton } from './create-link-button'
 import { ListLinksRows } from './list-links-rows'
 import { ListLinksTable } from './list-links-table'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
-import LoggedOutScreen from './user/logged-out-screen'
 
 export async function ListLinks() {
   const links = await getLinks()

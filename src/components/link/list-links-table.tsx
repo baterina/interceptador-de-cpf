@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
 import { getLink } from '@/lib/utils'
-import { CopyButton } from './copy-button'
-import { DateSpan } from './date-span'
+import { ScrollArea, ScrollBar } from '../ui/scroll-area'
+import { CopyButton } from '../util/copy-button'
+import { DateSpan } from '../util/date-span'
 import { LinkOptions } from './link-options'
-import { ScrollArea, ScrollBar } from './ui/scroll-area'
 
 export type Props = {
   links: Prisma.LinkGetPayload<{
